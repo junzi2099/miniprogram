@@ -2,8 +2,8 @@
 import regeneratorRuntime from "./util/regenerator-runtime/runtime.js"
 const { Realtime, Event } = require('./libs/realtime.weapp.min.js')
 const realtime = new Realtime({
-  appId: '7qIbqFtvrVWo9yrKRkbdanqn-gzGzoHsz',
-  appKey: 'k9s6Hw3BgHrh3YaFhUWqAJzy',
+  appId: '1HnxuVxOixVMkq2adLQuqUmQ-gzGzoHsz',
+  appKey: 'Yj5YY18aGj1f6RW5vV9IqRbq',
 });
 App({
   onLaunch: async function() {
@@ -132,10 +132,13 @@ App({
             }
           })
         })
+        console.log('cloudRes:',cloudRes)
         this.globalData.openid = cloudRes.result.openid
       }
     }
     wx.hideLoading()
+    console.log('globalData is:')
+    console.log(this.globalData)
     return this.globalData
   }
 })

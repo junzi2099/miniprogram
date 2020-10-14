@@ -54,5 +54,6 @@
   </i-panel>
 
   <i-button class="footer__btn" wx:if="{{!receiver||!telephone||!addressDetail}}" type="primary" disabled shape="circle" size="small">保存地址</i-button>
+  <!-- todo:(hezj,2020-10-14)bind:click和bindtap的区别？ -->
   <i-button class="footer__btn" wx:else type="primary" bind:click='saveAddress' type="error" shape="circle" size="small">保存地址</i-button>
 </view>

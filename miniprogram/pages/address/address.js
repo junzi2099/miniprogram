@@ -23,24 +23,26 @@ Page({
     operateId: "",
     deteleCofirmShow: false,
     actions: [{
-        name: '取消'
-      },
-      {
-        name: '删除',
-        color: '#ed3f14',
-        loading: false
-      }
+      name: '取消'
+    },
+    {
+      name: '删除',
+      color: '#ed3f14',
+      loading: false
+    }
     ]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: async function(options) {
+  onLoad: async function (options) {
     wx.showLoading({
       title: '加载中',
     })
+    //
     let res = await app.getUserInfoData()
+    console.log('进入地址列表页...', res)
     await this.setData({
       openid: res.openid
     })
@@ -51,49 +53,49 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function() {
+  onReady: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function() {
+  onShow: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function() {
+  onHide: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function() {
+  onUnload: function () {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function() {
+  onPullDownRefresh: function () {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function() {
+  onReachBottom: function () {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function() {
+  onShareAppMessage: function () {
 
   },
   async onPullDownRefresh() {
@@ -113,13 +115,17 @@ Page({
     wx.showLoading({
       title: '加载中',
     })
+    //todo:(hezj,2020-10-14)CloudFuncGet的用法总结？
     CloudFuncGet.queryUser(openid).then((res) => {
-      this.setData({
-        addressDatas: res.data[0].address.filter((item) => item)
-      })
+      if (res.data[0].address) {
+        this.setData({
+          addressDatas: res.data[0].address.filter((item) => item)
+        })
+      }
       wx.hideLoading()
     }).catch((err) => {
       wx.hideLoading()
+      console.error('提取地址信息失败...', err)
       wx.showToast({
         title: `加载失败${err}`,
       })
@@ -286,6 +292,7 @@ Page({
         })
       }
     } catch (e) {
+      console.error(`保存地址失败${e}`)
       wx.showToast({
         icon: 'none',
         title: `保存地址失败${e}`

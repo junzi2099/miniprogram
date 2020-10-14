@@ -68,7 +68,7 @@ exports.main = async(event, context) => {
       }
     }
   } catch (e) {
-    console.error(e)
+    console.error('[junzi]报错了...',e)
   }
   // return {
   //   event,
