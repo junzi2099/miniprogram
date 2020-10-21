@@ -124,8 +124,9 @@
     </button>
   </view>
   <view class="flex-3">
-    <button class="flex-column button-transparent backgroundMoneyRed" wx:if='{{pageData.status==="published"}}' bindtap='handleWechatPay'>
-      <text style='line-height:100rpx'>立刻交易</text>
+  <!-- (hezj,2020-10-21)暂时不用handleWechatPay，立刻交易。 -->
+    <button class="flex-column button-transparent backgroundMoneyRed" wx:if='{{pageData.status==="published"}}' bindtap='handleEnterChat'>
+      <text style='line-height:100rpx'>联系卖家</text>
     </button>
     <button class="flex-column button-transparent" disabled wx:if='{{pageData.status==="pending"}}'>
       <text style='line-height:100rpx'>已下架</text>

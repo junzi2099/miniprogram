@@ -2,7 +2,7 @@
 <i-panel title="">
   <i-card full title="{{userInfo.nickName||'用户名'}}" extra="查看个人主页" thumb="{{userInfo.avatarUrl||'https://i.loli.net/2017/08/21/599a521472424.jpg'}}" i-class="card-demo" bindtap="handleToUserCenter">
   <i-button wx:if="{{!userInfo.avatarUrl}}" bind:click="handleLogin" type="primary" size="small" slot="content">点击登录</i-button>
-    <view slot="footer">鲁迅名言:{{currentSaying}}</view>
+    <!-- <view slot="footer">鲁迅名言:{{currentSaying}}</view> -->
   </i-card>
 </i-panel>
 <i-panel title="" i-class="mt-6">

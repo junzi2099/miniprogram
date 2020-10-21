@@ -34,7 +34,7 @@ App({
               
             });
             user.on(Event.UNREAD_MESSAGES_COUNT_UPDATE, function (conversations) {
-              console.log(conversations)
+              console.log('conversations...', conversations)
               //判断修改还是增加conversation
               if (_this.globalData.conversations&&_this.globalData.conversations.length>0){
                 let flag = false

@@ -146,6 +146,7 @@ Page({
       visibleActions: false
     })
   },
+  // “确定上架”按钮点击事件
   async handlePublish() {
     //上架商品
     let where = {

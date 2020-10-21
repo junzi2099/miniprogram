@@ -16,6 +16,7 @@ Page({
   
   onLoad: async function (options) {
     try {
+      console.log('conversations...', app.globalData)
       let filterConvList = app.globalData.conversations.map(item => {
         return {
           id: item.id,
